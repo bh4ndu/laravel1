@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\EmpleadosController;
+use App\Http\Controllers\VentasController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +26,19 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 require __DIR__.'/auth.php';
+
+Route::get('/clientes', [CustomerController::class, 'index'])
+->middleware(['auth', 'verified'])->name('clientes');
+
+Route::get('/clientes/registrar', [CustomerController::class, 'registrar'])
+->middleware(['auth', 'verified'])->name('clientes.registrar');
+
+Route::post('/clientes/guardar', [CustomerController::class, 'guardar'])
+->middleware(['auth', 'verified'])->name('clientes.guardar');
+
+Route::get('/empleados', [EmpleadosController::class, 'index1'])
+->middleware(['auth', 'verified'])->name('empleados');
+
+Route::get('/ventas', [VentasController::class, 'index2'])
+->middleware(['auth', 'verified'])->name('ventas');
+
