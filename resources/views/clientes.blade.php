@@ -3,7 +3,7 @@
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Clientes') }}
         </h2>
-        <a class="btn btn-primary registrar" href="#">registrar cliente</a>
+        <a class="btn btn-primary registrar" href="{{ route('clientes.registrar') }}">registrar cliente</a>
     </x-slot>
 
     <div class="py-12">
@@ -25,10 +25,10 @@
                             <td>{{ $cliente-> phone }}</td>
                             <td>{{ $cliente-> addressLine1 }}</td>
                             <td>
-                                <a href="#" class="btn btn-sucess">editar</a>
+                                <a href="/clientes/actualizar/{{ $cliente-> customerNumber }}" class="btn btn-sucess">editar</a>
                                 <a href="#" class="btn btn-danger">eliminar</a>
                             </td>
-                        </tr>
+                        </tr> 
                         @endforeach
                     </table>
                 </div>

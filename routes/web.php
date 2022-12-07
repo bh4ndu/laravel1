@@ -42,3 +42,8 @@ Route::get('/empleados', [EmpleadosController::class, 'index1'])
 Route::get('/ventas', [VentasController::class, 'index2'])
 ->middleware(['auth', 'verified'])->name('ventas');
 
+Route::get('/clientes/actualizar/{id}', [CustomerController::class, 'actualizar'])
+->middleware(['auth', 'verified'])->name('clientes.actualizar');
+
+Route::post('/clientes/editar/{id}', [CustomerController::class, 'editar'])
+->middleware(['auth', 'verified'])->name('clientes.editar');

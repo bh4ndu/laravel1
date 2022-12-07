@@ -32,5 +32,27 @@ class CustomerController extends Controller
         ]);
         return redirect()->route('clientes');
     }
+
+    function actualizar($id) {
+        $cliente = DB::table('customers')
+                        ->where('customerNumber', $id)
+                        ->first();
+        return view('clientes-actualizar', compact('cliente'));
+    }
+
+    function editar($id) {
+        DB::table('customers')
+        ->where('customerNumber', $id)
+        ->update ([
+            'customerName' => $_POST['contactFirstName'],
+            'contactFirstName' => $_POST['contactFirstName'],
+            'contactLastName' => $_POST['contactLastName'],
+            'phone' => $_POST['phone'],
+            'addressLine1' => $_POST['addressLine1'],
+            'city' => 'lima',
+            'country' => 'peru'
+        ]);
+        return redirect()->route('clientes');
+    }
 }
 
